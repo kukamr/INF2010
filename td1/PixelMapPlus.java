@@ -84,8 +84,8 @@ public class PixelMapPlus extends PixelMap implements ImageOperations
 	public void convertToGrayImage()
 	{
 		for (int i =0; i< this.height; i++){
-		for (int j=0; i<this.width; j++){
-			this.imageData[i][j]= this.imageData[i][j].toGrayPixel();
+			for (int j=0; i<this.width; j++){
+				this.imageData[i][j]= this.imageData[i][j].toGrayPixel();
 		}
 	}
 
@@ -109,7 +109,7 @@ public class PixelMapPlus extends PixelMap implements ImageOperations
 	public void convertToTransparentImage()
 	{
 		for (int i =0; i< this.height; i++){
-		for (int j=0; i<this.width; j++){
+			for (int j=0; i<this.width; j++){
 			this.imageData[i][j]= this.imageData[i][j].toTransparentPixel();
 		}
 	}
@@ -128,30 +128,21 @@ public class PixelMapPlus extends PixelMap implements ImageOperations
 		if(w < 0 || h < 0)
 			throw new IllegalArgumentException();
 
+		double ratioH = this.height/h;
+		double ratioW = this.width/w;
+
 		AbstractPixel[][] newImage = new AbstractPixel[h][w];
 
-		int indexW = 0;
-		int indexH = 0;
-
-		if (w<width){
-			double ratioW = width/w;
-			double ratioH = height/h;
-			for (int i = 0; i<this.height; i++){
-				if(i%ratioH == 0) {
-					for (int j = 0; j<this.width; j++) {
-						if(j%ratioW == 0) {
-							newImage[indexH][indexW++] = this.imageData[i][j];
-						}
-					}
-					indexW = 0;
-					indexH++;
-				}
+		for (int i = 0; i < h; i++) {
+			for (int j = 0; j < w; j++) {
+				newImage[i][j] = this.imageData[(int)(i*ratioH)][(int)(j*ratioW)];
 			}
 		}
 
-		this.imageData = newImage;
-		this.width = w;
 		this.height = h;
+		this.width = w;
+		this.imageData = newImage;
+
 	}
 	
 	/**
@@ -159,7 +150,12 @@ public class PixelMapPlus extends PixelMap implements ImageOperations
 	 */
 	public void insert(PixelMap pm, int row0, int col0)
 	{
-		// compl�ter
+		for(int i =0; i < pm.height; i++){
+			for(int j = 0; j < pm.width; j++) {
+				this.imageData[row0 + i][col0 + j] = pm.imageData[i][j];
+			}
+
+		}
 		
 	}
 	
@@ -168,7 +164,8 @@ public class PixelMapPlus extends PixelMap implements ImageOperations
 	 */
 	public void crop(int h, int w)
 	{
-		// compl�ter		
+		this.height = h;
+		this.width = w;
 		
 	}
 	
@@ -177,7 +174,17 @@ public class PixelMapPlus extends PixelMap implements ImageOperations
 	 */
 	public void translate(int rowOffset, int colOffset)
 	{
-		// compl�ter		
+		AbstractPixel[][] newImage = new AbstractPixel[this.width][this.height];
+
+		for(int i =0; i < this.height; i++){
+			for(int j = 0; j< this.width; j++){
+				if(i + rowOffset > 0 && i + rowOffset < this.height && j + colOffset > 0 && j + colOffset < this.width){
+					newImage[i][j] = this.imageData[i + colOffset][j + colOffset];
+				}
+			}
+		}
+
+		this.imageData = newImage;
 		
 	}
 	

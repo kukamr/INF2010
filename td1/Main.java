@@ -39,8 +39,15 @@ public class Main
 		//tests
 
 		PixelMapPlus pmp = new PixelMapPlus("./ed.ppm");
-		pmp.resize(120,320);
+		pmp.resize(240,320);
 		new DisplayImageWindow("imageresize", pmp, 250,250);
+
+
+		PixelMapPlus hpmp = new PixelMapPlus( "./ed.ppm" );
+		//hpmp.insert(pmp, 0,0);
+		hpmp.translate(100,100);
+		new DisplayImageWindow("insert", hpmp, 100, 100);
+
 
 		/**
 		Exercice 2
