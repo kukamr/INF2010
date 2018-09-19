@@ -56,8 +56,8 @@ public class PixelMapPlus extends PixelMap implements ImageOperations
 	 */
 	public void negate()
 	{
-		for (int i =0; i< this.height; i++){
-			for (int j=0; i<this.width; j++){
+		for (int i = 0; i < this.height; i++){
+			for (int j = 0; j <this.width; j++){
 				this.imageData[i][j]= this.imageData[i][j].Negative();
 			}
 		}
@@ -69,8 +69,8 @@ public class PixelMapPlus extends PixelMap implements ImageOperations
 	 */
 	public void convertToBWImage()
 	{
-		for (int i =0; i< this.height; i++){
-			for (int j=0; i<this.width; j++){
+		for (int i = 0; i < this.height; i++){
+			for (int j= 0; j < this.width; j++){
 				this.imageData[i][j]= this.imageData[i][j].toBWPixel();
 			}
 		}
@@ -84,8 +84,8 @@ public class PixelMapPlus extends PixelMap implements ImageOperations
 	public void convertToGrayImage()
 	{
 		for (int i =0; i< this.height; i++){
-		for (int j=0; i<this.width; j++){
-			this.imageData[i][j]= this.imageData[i][j].toGrayPixel();
+			for (int j = 0; j < this.width; j++){
+				this.imageData[i][j]= this.imageData[i][j].toGrayPixel();
 		}
 	}
 
@@ -97,8 +97,8 @@ public class PixelMapPlus extends PixelMap implements ImageOperations
 	 */
 	public void convertToColorImage()
 	{
-		for (int i =0; i< this.height; i++){
-			for (int j=0; i<this.width; j++){
+		for (int i = 0; i < this.height; i++){
+			for (int j = 0; j < this.width; j++){
 				this.imageData[i][j]= this.imageData[i][j].toColorPixel();
 		}
 	}
@@ -108,8 +108,8 @@ public class PixelMapPlus extends PixelMap implements ImageOperations
 	
 	public void convertToTransparentImage()
 	{
-		for (int i =0; i< this.height; i++){
-		for (int j=0; i<this.width; j++){
+		for (int i = 0; i < this.height; i++){
+			for (int j = 0; j <this.width; j++){
 			this.imageData[i][j]= this.imageData[i][j].toTransparentPixel();
 		}
 	}
@@ -128,30 +128,21 @@ public class PixelMapPlus extends PixelMap implements ImageOperations
 		if(w < 0 || h < 0)
 			throw new IllegalArgumentException();
 
+		double ratioH = this.height/h;
+		double ratioW = this.width/w;
+
 		AbstractPixel[][] newImage = new AbstractPixel[h][w];
 
-		int indexW = 0;
-		int indexH = 0;
-
-		if (w<width){
-			double ratioW = width/w;
-			double ratioH = height/h;
-			for (int i = 0; i<this.height; i++){
-				if(i%ratioH == 0) {
-					for (int j = 0; j<this.width; j++) {
-						if(j%ratioW == 0) {
-							newImage[indexH][indexW++] = this.imageData[i][j];
-						}
-					}
-					indexW = 0;
-					indexH++;
-				}
+		for (int i = 0; i < h; i++) {
+			for (int j = 0; j < w; j++) {
+				newImage[i][j] = this.imageData[(int)(i*ratioH)][(int)(j*ratioW)];
 			}
 		}
 
-		this.imageData = newImage;
-		this.width = w;
 		this.height = h;
+		this.width = w;
+		this.imageData = newImage;
+
 	}
 	
 	/**
@@ -159,7 +150,12 @@ public class PixelMapPlus extends PixelMap implements ImageOperations
 	 */
 	public void insert(PixelMap pm, int row0, int col0)
 	{
-		// compl�ter
+		for(int i =0; i < pm.height; i++){
+			for(int j = 0; j < pm.width; j++) {
+				this.imageData[row0 + i][col0 + j] = pm.imageData[i][j];
+			}
+
+		}
 		
 	}
 	
@@ -168,8 +164,22 @@ public class PixelMapPlus extends PixelMap implements ImageOperations
 	 */
 	public void crop(int h, int w)
 	{
-		// compl�ter		
-		
+		AbstractPixel[][] newImageData = new AbstractPixel[h][w];
+
+		for(int i = 0; i < h; i++) {
+			for(int j =0; j < w; j++){
+				if(i < this.height && j < this.width){
+					newImageData[i][j] = this.imageData[i][j];
+				}
+				else {
+					newImageData[i][j] = new ColorPixel();
+				}
+			}
+		}
+
+		this.imageData = newImageData;
+		this.width = w;
+		this.height = h;
 	}
 	
 	/**
@@ -177,7 +187,18 @@ public class PixelMapPlus extends PixelMap implements ImageOperations
 	 */
 	public void translate(int rowOffset, int colOffset)
 	{
-		// compl�ter		
+
+		for(int i = this.height - 1; i != -1; i--){
+			for(int j = this.width - 1; j != -1; j--){
+				if((i - rowOffset >= 0) && (j - colOffset >= 0 )) {
+					this.imageData[i][j] = this.imageData[i-rowOffset][j- colOffset];
+				}
+				else {
+					this.imageData[i][j] = new ColorPixel();
+				}
+			}
+		}
+
 		
 	}
 	

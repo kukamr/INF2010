@@ -13,7 +13,7 @@ public class Main
 	{
 		/**
 		 * Exercice 1
-		 */
+		 
 		
 		PixelMap pmc = new PixelMap("./ed.ppm");
 		PixelMap pmg = pmc.toGrayImage();
@@ -35,16 +35,10 @@ public class Main
 		
 		wName = "Edsger Dijkstra (Transparent)";
 		new DisplayImageWindow(wName, pmt, 200, 200);
-
-		//tests
-
-		PixelMapPlus pmp = new PixelMapPlus("./ed.ppm");
-		pmp.resize(120,320);
-		new DisplayImageWindow("imageresize", pmp, 250,250);
-
-		/**
+		
+		
 		Exercice 2
-
+		*/
 		
 		PixelMapPlus pmp = new PixelMapPlus("./ed.ppm");
 		
@@ -72,9 +66,9 @@ public class Main
 		pmp.insert(bwpmp, 0, pmp.getWidth()/2);
 		pmp.insert(npmp, pmp.getHeight()/2, pmp.getWidth()/2);
 		
-		wName = "Edsger Dijkstra";
+		String wName = "Edsger Dijkstra";
 		new DisplayImageWindow(wName, pmp);
-		 **/
+		 
 		
 	}
 }
