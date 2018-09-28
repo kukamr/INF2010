@@ -150,13 +150,11 @@ public class PixelMapPlus extends PixelMap implements ImageOperations
 	 */
 	public void insert(PixelMap pm, int row0, int col0)
 	{
-		for(int i =0; i < pm.height; i++){
+		for(int i = 0; i < pm.height; i++){
 			for(int j = 0; j < pm.width; j++) {
 				this.imageData[row0 + i][col0 + j] = pm.imageData[i][j];
 			}
-
 		}
-		
 	}
 	
 	/**
@@ -187,11 +185,12 @@ public class PixelMapPlus extends PixelMap implements ImageOperations
 	 */
 	public void translate(int rowOffset, int colOffset)
 	{
+		PixelMap copy = new PixelMap(this);
 
 		for(int i = this.height - 1; i != -1; i--){
 			for(int j = this.width - 1; j != -1; j--){
-				if((i - rowOffset >= 0) && (j - colOffset >= 0 )) {
-					this.imageData[i][j] = this.imageData[i-rowOffset][j- colOffset];
+				if((i - rowOffset >= 0) && (j - colOffset >= 0 ) && (i - rowOffset < this.height) && (j - colOffset < this.width)) {
+					this.imageData[i][j] = copy.imageData[i-rowOffset][j- colOffset];
 				}
 				else {
 					this.imageData[i][j] = new ColorPixel();

@@ -9,7 +9,8 @@ public class ArrayQueue<AnyType> implements Queue<AnyType>
 	@SuppressWarnings("unchecked")
 	public ArrayQueue() 
 	{
-		//A completer
+		this.table = (AnyType[]) new Object[1];
+		this.size = 0;
 		
 	}
 	
@@ -30,7 +31,7 @@ public class ArrayQueue<AnyType> implements Queue<AnyType>
 	//complexit� asymptotique: O(1)
 	public AnyType peek()
 	{
-		return null;
+		return this.table[startindex];
 		
 	}
 	
@@ -38,8 +39,8 @@ public class ArrayQueue<AnyType> implements Queue<AnyType>
 	//complexit� asymptotique: O(1)
 	public void pop() throws EmptyQueueException
 	{
-		//A completer
-		
+		startindex++;
+		size--;
 	}
 	
 	//Ajoute un element a la fin de la file
@@ -47,7 +48,13 @@ public class ArrayQueue<AnyType> implements Queue<AnyType>
 	//complexit� asymptotique: O(1) ( O(N) lorsqu'un redimensionnement est necessaire )
 	public void push(AnyType item)
 	{
-		//A completer
+		if (this.size >= this.table.length){
+			resize(2);
+		}
+
+		this.table[size] = item;		
+
+		this.size++;
 		
 	}
    
@@ -57,7 +64,12 @@ public class ArrayQueue<AnyType> implements Queue<AnyType>
 	@SuppressWarnings("unchecked")
 	private void resize(int resizeFactor)
 	{
-		//A completer
+		AnyType[] newTableau = (AnyType[]) new Object[this.size * table.length];
+
+		for(int i = 0; i < this.size; i++) {
+			newTableau[i] = this.table[i];
+		}
+
 		
 	}   
 }
