@@ -13,6 +13,7 @@ public class ArrayQueue<AnyType> implements Queue<AnyType>
 		this.size = 0;
 		
 	}
+
 	
 	//Indique si la file est vide
 	public boolean empty() 
@@ -23,7 +24,7 @@ public class ArrayQueue<AnyType> implements Queue<AnyType>
 	//Retourne la taille de la file
 	public int size() 
 	{ 
-		return size; 
+		return size;
 	}
 	
 	//Retourne l'element en tete de file
@@ -64,12 +65,17 @@ public class ArrayQueue<AnyType> implements Queue<AnyType>
 	@SuppressWarnings("unchecked")
 	private void resize(int resizeFactor)
 	{
-		AnyType[] newTableau = (AnyType[]) new Object[this.size * table.length];
+		System.out.println("taille avant resize : "  + this.size);
+		System.out.println("lenght avant resize : "  + this.table.length);
 
-		for(int i = 0; i < this.size; i++) {
-			newTableau[i] = this.table[i];
+		AnyType[] newTableau = (AnyType[]) new Object[resizeFactor * this.size];
+
+		for(int i = 0; i < this.size - 1; i++) {
+			newTableau[i] = this.table[i + startindex];
 		}
 
+		startindex = 0;
+		this.table = newTableau;
 		
 	}   
 }

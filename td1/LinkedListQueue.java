@@ -50,7 +50,13 @@ public class LinkedListQueue<AnyType> implements Queue<AnyType>
 	//complexit� asymptotique: O(1)
 	public AnyType peek()
 	{
-		return (AnyType) last.getNext();
+		if(empty()){
+			return null;
+		}
+		else {
+			return (AnyType) last.getNext().data;
+		}
+		
 		
 	}
 	
@@ -58,7 +64,8 @@ public class LinkedListQueue<AnyType> implements Queue<AnyType>
 	//complexit� asymptotique: O(1)
 	public void pop() throws EmptyQueueException
 	{
-		last.setNext(last.getNext().getNext());	
+		last.setNext(last.getNext().getNext());
+			
 		size--;
 	}
 	
@@ -72,7 +79,8 @@ public class LinkedListQueue<AnyType> implements Queue<AnyType>
 			newItem.setNext(newItem);
 		}
 		else {
-			newItem.next = last.getNext();
+			newItem.setNext(last.getNext());
+			last.setNext(newItem);
 		}
 		
 		last = newItem;
