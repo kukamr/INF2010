@@ -45,7 +45,7 @@ public class QueueMain
 			}
 		}
 //
-System.out.println("Peek dans array apres 1013 pop  suppose etre 1013= " + arrayQueue.peek());
+System.out.println("Peek dans array apres 1013 pop  suppose etre "+ popCounter + "= " + arrayQueue.peek());
 System.out.println("Peek dans list apres 1013 pop  suppose etre 1013= " + listQueue.peek());
 
 System.out.println("array size " + arrayQueue.size());
@@ -53,29 +53,20 @@ System.out.println("array size " + arrayQueue.size());
 
 		for(int i = 0; i < COUNT*2.5; i++)
 		{
+//			
+			if(popCounter != arrayQueue.peek()) {
+			System.out.println( "Size : " + arrayQueue.size() + " i = " + i);
+			System.out.println("Peek suppose etre : " + popCounter + " mais est : " + arrayQueue.peek());
+			break;
+			}
+			//
 			arrayQueue.push(pushCounter);
 			listQueue.push(pushCounter);
 			pushCounter++;
 		}
-
-		//
-System.out.println("Peek dans array apres 2532 push  suppose etre 1013= " + arrayQueue.peek());
-System.out.println("Peek dans list apres 2532 push  suppose etre 1013= " + listQueue.peek());
-//
 		
 		for(int i = 0; i < COUNT*3.5; i++)
 		{
-
-			//tests
-
-			if(arrayQueue.peek() != popCounter){
-				System.out.println("Erreur dans le array");
-			}
-
-			if(listQueue.peek() != popCounter){
-				System.out.println("Erreur dans la liste");
-			}
-			//
 
 			if(arrayQueue.peek() != popCounter || listQueue.peek() != popCounter)
 			{

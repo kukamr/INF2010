@@ -1,5 +1,4 @@
 
-
 public class ArrayQueue<AnyType> implements Queue<AnyType>
 {
 	private int size = 0;		//Nombre d'elements dans la file.
@@ -32,16 +31,25 @@ public class ArrayQueue<AnyType> implements Queue<AnyType>
 	//complexit� asymptotique: O(1)
 	public AnyType peek()
 	{
-		return this.table[startindex];
-		
+		if(empty()){
+			return null;
+		}
+		else {
+			return this.table[startindex];
+		}
 	}
 	
 	//Retire l'element en tete de file
 	//complexit� asymptotique: O(1)
 	public void pop() throws EmptyQueueException
 	{
-		startindex++;
-		size--;
+		if(empty()){
+			throw new EmptyQueueException();
+		} else {
+			table[startindex] = null;
+			this.startindex++;
+			this.size--;
+		}
 	}
 	
 	//Ajoute un element a la fin de la file
@@ -65,17 +73,15 @@ public class ArrayQueue<AnyType> implements Queue<AnyType>
 	@SuppressWarnings("unchecked")
 	private void resize(int resizeFactor)
 	{
-		System.out.println("taille avant resize : "  + this.size);
-		System.out.println("lenght avant resize : "  + this.table.length);
+		AnyType[] newTableau = (AnyType[]) new Object[resizeFactor * table.length];
 
-		AnyType[] newTableau = (AnyType[]) new Object[resizeFactor * this.size];
-
-		for(int i = 0; i < this.size - 1; i++) {
-			newTableau[i] = this.table[i + startindex];
+		for(int i = 0; i < this.size; i++) {
+			newTableau[i] = this.table[i+startindex];
 		}
 
-		startindex = 0;
+		this.startindex = 0;
 		this.table = newTableau;
+
 		
 	}   
 }

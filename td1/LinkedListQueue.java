@@ -64,9 +64,14 @@ public class LinkedListQueue<AnyType> implements Queue<AnyType>
 	//complexit� asymptotique: O(1)
 	public void pop() throws EmptyQueueException
 	{
-		last.setNext(last.getNext().getNext());
+		if(empty()){
+			throw new EmptyQueueException();
+		} else {
+			last.setNext(last.getNext().getNext());
 			
-		size--;
+			size--;
+		}
+		
 	}
 	
 	//Ajoute un element a la fin de la file

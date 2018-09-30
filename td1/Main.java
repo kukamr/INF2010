@@ -1,5 +1,5 @@
 /**
- * Fichier principal pour le probleme
+ * Fichier principal pour le probl�me
  * @author Tarek Ould Bachir, Wail Khemir
  */
 
@@ -11,9 +11,9 @@ public class Main
 	 */
 	public static void main(String[] args) 
 	{
-		
-		//Exercice 1
-		 
+		/**
+		 * Exercice 1
+		 */
 		
 		PixelMap pmc = new PixelMap("./ed.ppm");
 		PixelMap pmg = pmc.toGrayImage();
@@ -27,9 +27,7 @@ public class Main
 		String wName = "Edsger Dijkstra (original)";
 		new DisplayImageWindow(wName, pmc, 50, 50);
 		
-		
-
-		/*wName = "Edsger Dijkstra (gris)";
+		wName = "Edsger Dijkstra (gris)";
 		new DisplayImageWindow(wName, pmg, 50+50, 50+50);
 		
 		wName = "Edsger Dijkstra (B&W)";
@@ -38,15 +36,12 @@ public class Main
 		wName = "Edsger Dijkstra (Transparent)";
 		new DisplayImageWindow(wName, pmt, 200, 200);
 		
-		/*
-		Exercice 2
+		/**
+		 * Exercice 2
+		 */
 		
-		*/
-
 		PixelMapPlus pmp = new PixelMapPlus("./ed.ppm");
-		pmp.crop(800,700);
-		new DisplayImageWindow(wName, pmp, 50, 50);
-		/*
+		
 		PixelMapPlus hpmp = new PixelMapPlus( pmp );
 		
 		hpmp.resize(hpmp.width/2, hpmp.height/2);
@@ -71,9 +66,8 @@ public class Main
 		pmp.insert(bwpmp, 0, pmp.getWidth()/2);
 		pmp.insert(npmp, pmp.getHeight()/2, pmp.getWidth()/2);
 		
-		String wName = "Edsger Dijkstra";
+		wName = "Edsger Dijkstra";
 		new DisplayImageWindow(wName, pmp);
-		 */
 		
 	}
 }
