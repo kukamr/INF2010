@@ -16,15 +16,9 @@ public class QueueMain
 		{
 			arrayQueue.push(pushCounter);
 			listQueue.push(pushCounter);
-
 			pushCounter++;
 		}
-
-		//
-		System.out.println("Peek dans array apres 2026 PUSH  suppose etre 0= " + arrayQueue.peek());
-		System.out.println("Peek dans list apres 2026 PUSH  suppose etre 0= " + listQueue.peek());
-		//
-
+		
 		if(arrayQueue.size() != COUNT*2 || listQueue.size() != COUNT*2)
 		{
 			System.out.println("Erreur: La taille de la file n'est egale a " + COUNT + " apres avoir ajoute " + COUNT + " elements");
@@ -44,22 +38,9 @@ public class QueueMain
 				return;
 			}
 		}
-//
-System.out.println("Peek dans array apres 1013 pop  suppose etre "+ popCounter + "= " + arrayQueue.peek());
-System.out.println("Peek dans list apres 1013 pop  suppose etre 1013= " + listQueue.peek());
-
-System.out.println("array size " + arrayQueue.size());
-//
-
+		
 		for(int i = 0; i < COUNT*2.5; i++)
 		{
-//			
-			if(popCounter != arrayQueue.peek()) {
-			System.out.println( "Size : " + arrayQueue.size() + " i = " + i);
-			System.out.println("Peek suppose etre : " + popCounter + " mais est : " + arrayQueue.peek());
-			break;
-			}
-			//
 			arrayQueue.push(pushCounter);
 			listQueue.push(pushCounter);
 			pushCounter++;
@@ -67,7 +48,6 @@ System.out.println("array size " + arrayQueue.size());
 		
 		for(int i = 0; i < COUNT*3.5; i++)
 		{
-
 			if(arrayQueue.peek() != popCounter || listQueue.peek() != popCounter)
 			{
 				System.out.println("Erreur: l'ordre de sortie(FIFO) n'est pas respecte");

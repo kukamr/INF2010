@@ -80,7 +80,7 @@ public class LinkedListQueue<AnyType> implements Queue<AnyType>
 	{	
 		Node newItem = new Node(item, null);
 		
-		if(size == 0){
+		if(empty()){
 			newItem.setNext(newItem);
 		}
 		else {

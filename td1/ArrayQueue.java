@@ -9,8 +9,6 @@ public class ArrayQueue<AnyType> implements Queue<AnyType>
 	public ArrayQueue() 
 	{
 		this.table = (AnyType[]) new Object[1];
-		this.size = 0;
-		
 	}
 
 	
@@ -57,11 +55,11 @@ public class ArrayQueue<AnyType> implements Queue<AnyType>
 	//complexit� asymptotique: O(1) ( O(N) lorsqu'un redimensionnement est necessaire )
 	public void push(AnyType item)
 	{
-		if (this.size >= this.table.length){
+		if (this.size >= this.table.length - startindex){
 			resize(2);
 		}
 
-		this.table[size] = item;		
+		this.table[size + startindex] = item;		
 
 		this.size++;
 		
@@ -81,7 +79,6 @@ public class ArrayQueue<AnyType> implements Queue<AnyType>
 
 		this.startindex = 0;
 		this.table = newTableau;
-
 		
 	}   
 }
