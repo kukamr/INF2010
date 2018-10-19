@@ -1,5 +1,7 @@
 import java.util.Random;
 
+import javax.lang.model.util.ElementScanner6;
+
 import java.text.MessageFormat;
 
 import java.util.ArrayList;
@@ -38,7 +40,7 @@ public class LinearSpacePerfectHashing<AnyType>
 
 		if(array == null || array.size() == 0)
 		{
-			data = null;
+			data = new QuadraticSpacePerfectHashing[0];
 			return;
 		}
 
@@ -74,12 +76,16 @@ public class LinearSpacePerfectHashing<AnyType>
 
 	public int Size()
 	{
-		if( data == null ) return 0;
+		if( data == null )
+			return 0;
 
 		int size = 0;
 		for(int i=0; i<data.length; ++i)
 		{
-			size += (data[i] == null ? 1 : data[i].Size());
+			if(data[i] == null) 
+				size += 1;
+			else 
+				size += data[i].Size();
 		}
 		return size;
 	}
@@ -91,10 +97,7 @@ public class LinearSpacePerfectHashing<AnyType>
 	}
 	
 	public int getKey (AnyType x) {
-		int key = 0;
-		do{
-			key = ((a * x.hashCode() + b) % p) % data.length;
-		} while (key > 24);
+		int key = ((a * x.hashCode() + b) % p) % data.length;
 
 		return key;
 		
@@ -103,7 +106,7 @@ public class LinearSpacePerfectHashing<AnyType>
 	public boolean containsValue (AnyType x) {
 		int key = getKey(x);
 
-		if(data[key] != null){
+		if(containsKey(key)){
 			return data[key].containsValue(x);
 		}
 		return false;

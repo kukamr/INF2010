@@ -7,6 +7,7 @@ public class HashFunctions
    
    public static void main(String[] args) 
    {
+       
       // Donnees brutes
       Integer[] array = { 100,  75,  64,  25,  36, 101,  11,  92,  
                      200, 175, 164, 125, 136, 201, 111, 192,
@@ -88,9 +89,9 @@ public class HashFunctions
       System.out.println();
       
       
-      /**
-       * Confirmation des resultats de Exercice 3
-    
+      
+       // Confirmation des resultats de Exercice 3
+       
       // Effectues quelques tests aleatoires pour verifier les proprietes de taille
       pfhash = new LinearSpacePerfectHashing<Integer>();
             
@@ -99,7 +100,7 @@ public class HashFunctions
          pfhash.SetArray( randomIntegers( nbElements ) );
          System.out.println( nbElements + "\t" + pfhash.Size() );
       }
-      */
+      
    }
    
    /**
@@ -107,7 +108,19 @@ public class HashFunctions
     */
    public static ArrayList<Integer> randomIntegers(int length)
    {
-      return null;
+        ArrayList<Integer> arrayList = new ArrayList<Integer>();
+
+        Random generator = new Random( System.nanoTime() );
+
+        do{
+            int value = generator.nextInt(p);
+            if(!arrayList.contains(value)) {
+                arrayList.add(value);
+            }
+        } while(arrayList.size() < length);
+
+
+        return arrayList;
    }
 }
 

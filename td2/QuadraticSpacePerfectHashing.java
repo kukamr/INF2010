@@ -26,6 +26,9 @@ public class QuadraticSpacePerfectHashing<AnyType>
 
 	public int Size()
 	{
+		if (items == null)
+			return 0;
+
 		return items.length;
 	}
 
@@ -41,7 +44,7 @@ public class QuadraticSpacePerfectHashing<AnyType>
 	public boolean containsValue(AnyType x )
 	{
 		int key = getKey(x);
-		return(items[key] == x);
+		return(containsKey(key));
 
 	}
 
@@ -64,34 +67,48 @@ public class QuadraticSpacePerfectHashing<AnyType>
 
 		if(array == null || array.size() == 0)
 		{
-			items = null;
+			items = (AnyType[]) new Object[0];
+
 			return;
 		}
 		if(array.size() == 1)
 		{
 			a = b = 0;
-			Object value = array.get(0);
-			items = (AnyType[]) new Object[] {value};
+			AnyType value = array.get(0);
+			items = (AnyType[]) new Object[1];
+			items[0] = value;
 
 			return;
 		}
 
-		items = (AnyType[]) new Object[array.size()*array.size()];
 
-		a = generator.nextInt(p - 1) + 1;
-		b = generator.nextInt(p - 1);
-
-		for(AnyType item : array){
-			int newIndex = getKey(item);
-			items[newIndex] = item;
-		}
-
+		do {
+			items = null;
+			items = (AnyType[]) new Object[array.size()*array.size()];
+			a = generator.nextInt(p - 1) + 1;
+			b = generator.nextInt(p);
+		} while (hasCollisions(array));
+		
 	}
+
+	
+	private boolean hasCollisions(ArrayList<AnyType> array) {
+		for(AnyType item : array) {
+			int key = getKey(item);
+			if(containsKey(key))
+				return true;
+			else
+				items[key] = item;
+		}
+		return false;
+	}
+	
+
 
 	public String toString() {
 		String result = "";
 		
-		for(int i = 0; i < Size(); i++){
+		for(int i = 0; i < items.length; i++){
 			if(items[i] != null){
 				result += MessageFormat.format("({0},{1}), ", getKey(items[i]), items[i]);
 			}
@@ -103,7 +120,7 @@ public class QuadraticSpacePerfectHashing<AnyType>
 		
 		ArrayList<AnyType> toReturn = new ArrayList<AnyType>();
 
-		for(int i = 0; i < Size(); i++) {
+		for(int i = 0; i < items.length; i++) {
 			if(items[i] != null){
 				toReturn.add(items[i]);
 			}
