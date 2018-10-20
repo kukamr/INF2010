@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8b696e0c-1772-4e81-80b5-fb3358bc064e" name="Default" comment="">
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/bin/.idea/misc.xml" afterDir="false" />
@@ -26,6 +27,22 @@
       <change beforePath="$PROJECT_DIR$/bin/TransparentPixel.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/td1.iml" beforeDir="false" afterPath="$PROJECT_DIR$/bin/td1.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/td1.iml" beforeDir="false" afterPath="$PROJECT_DIR$/td1.iml" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/bin/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/BWPixel.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/BWPixel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/DisplayImageWindow.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/DisplayImageWindow.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/PixelMap.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/PixelMap.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/PixelMapPlus.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/PixelMapPlus.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/QueueMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/QueueMain.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/td1.iml" beforeDir="false" afterPath="$PROJECT_DIR$/bin/td1.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/td1.iml" beforeDir="false" afterPath="$PROJECT_DIR$/td1.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tp1/code_tp1/GrayPixel.java" beforeDir="false" afterPath="$PROJECT_DIR$/../tp1/code_tp1/GrayPixel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tp1/code_tp1/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../tp1/code_tp1/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tp1/code_tp1/PixelMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/../tp1/code_tp1/PixelMap.java" afterDir="false" />
+>>>>>>> 1877fd6bc7d20b1164c186dac1c97233116bbea7
     </list>
     <ignored path="$PROJECT_DIR$/bin/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -38,16 +55,57 @@
     <session id="-203600057">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
+<<<<<<< HEAD
           <entry key="project.closed" value="2" />
           <entry key="project.open.time.5" value="1" />
           <entry key="project.open.time.6" value="1" />
           <entry key="project.opened" value="2" />
+=======
+          <entry key="project.closed" value="3" />
+          <entry key="project.open.time.0" value="1" />
+          <entry key="project.open.time.5" value="1" />
+          <entry key="project.open.time.6" value="1" />
+          <entry key="project.opened" value="3" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="java" value="2" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="JAVA" value="2" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="java" value="852" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="JAVA" value="852" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.vcs.git.usages" />
+      <usages-collector id="statistics.js.language.service.starts" />
+      <usages-collector id="statistics.spring.boot.mvc.usages" />
+      <usages-collector id="statistics.spring.boot.run.usages" />
+    </session>
+    <session id="1712666687">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.open.time.7" value="1" />
+          <entry key="project.opened" value="1" />
+>>>>>>> 1877fd6bc7d20b1164c186dac1c97233116bbea7
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+<<<<<<< HEAD
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Main.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -125,15 +183,29 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="136">
               <caret line="15" column="19" selection-start-line="15" selection-start-column="19" selection-end-line="15" selection-end-column="19" />
+=======
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="495">
+              <caret line="39" selection-start-line="39" selection-end-line="39" />
+>>>>>>> 1877fd6bc7d20b1164c186dac1c97233116bbea7
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+<<<<<<< HEAD
         <entry file="file://$PROJECT_DIR$/BWPixel.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="102">
               <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+=======
+        <entry file="file://$PROJECT_DIR$/PixelMapPlus.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="565">
+              <caret line="180" column="105" selection-start-line="180" selection-start-column="105" selection-end-line="180" selection-end-column="105" />
+>>>>>>> 1877fd6bc7d20b1164c186dac1c97233116bbea7
             </state>
           </provider>
         </entry>
@@ -157,6 +229,10 @@
         <option value="$PROJECT_DIR$/ArrayQueue.java" />
         <option value="$PROJECT_DIR$/LinkedListQueue.java" />
         <option value="$PROJECT_DIR$/TransparentPixel.java" />
+<<<<<<< HEAD
+=======
+        <option value="$PROJECT_DIR$/PixelMapPlus.java" />
+>>>>>>> 1877fd6bc7d20b1164c186dac1c97233116bbea7
         <option value="$PROJECT_DIR$/Main.java" />
         <option value="$PROJECT_DIR$/PixelMapPlus.java" />
       </list>
@@ -168,7 +244,11 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
+<<<<<<< HEAD
   <component name="ProjectFrameBounds">
+=======
+  <component name="ProjectFrameBounds" extendedState="6">
+>>>>>>> 1877fd6bc7d20b1164c186dac1c97233116bbea7
     <option name="y" value="26" />
     <option name="width" value="1920" />
     <option name="height" value="1000" />
@@ -180,6 +260,20 @@
     </navigator>
     <panes>
       <pane id="Scope" />
+<<<<<<< HEAD
+=======
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="td1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="td1" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+>>>>>>> 1877fd6bc7d20b1164c186dac1c97233116bbea7
       <pane id="PackagesPane" />
       <pane id="ProjectPane" />
     </panes>
@@ -187,7 +281,11 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+<<<<<<< HEAD
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537327101958" />
+=======
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537367961852" />
+>>>>>>> 1877fd6bc7d20b1164c186dac1c97233116bbea7
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -323,11 +421,20 @@
       <updated>1537211756901</updated>
       <workItem from="1537326648159" duration="456000" />
       <workItem from="1537327153565" duration="18000" />
+<<<<<<< HEAD
+=======
+      <workItem from="1537327198007" duration="2394000" />
+      <workItem from="1537377075822" duration="785000" />
+>>>>>>> 1877fd6bc7d20b1164c186dac1c97233116bbea7
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="474000" />
+=======
+    <option name="totallyTimeSpent" value="3653000" />
+>>>>>>> 1877fd6bc7d20b1164c186dac1c97233116bbea7
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -339,9 +446,15 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
+<<<<<<< HEAD
     <frame x="0" y="26" width="1920" height="1000" extended-state="0" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18655914" />
+=======
+    <frame x="0" y="23" width="1680" height="959" extended-state="6" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1910867" />
+>>>>>>> 1877fd6bc7d20b1164c186dac1c97233116bbea7
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Nl-Palette" order="3" />
@@ -351,6 +464,7 @@
       <window_info id="UI Designer" order="7" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
+<<<<<<< HEAD
       <window_info anchor="bottom" id="Run" order="2" weight="0.32963374" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39955604" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -360,6 +474,17 @@
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Messages" order="10" visible="true" weight="0.24942264" />
+=======
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.17531718" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3995381" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.3256351" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.3290993" />
+      <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.24913494" />
+>>>>>>> 1877fd6bc7d20b1164c186dac1c97233116bbea7
       <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -391,6 +516,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1037">
@@ -409,6 +535,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="901">
           <caret line="68" column="21" selection-start-line="68" selection-start-column="21" selection-end-line="68" selection-end-column="21" />
+=======
+    <entry file="file://$PROJECT_DIR$/ArrayQueue.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="578">
+          <caret line="40" column="20" selection-start-line="40" selection-start-column="20" selection-end-line="40" selection-end-column="20" />
+>>>>>>> 1877fd6bc7d20b1164c186dac1c97233116bbea7
         </state>
       </provider>
     </entry>
@@ -444,6 +576,30 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="15" column="19" selection-start-line="15" selection-start-column="19" selection-end-line="15" selection-end-column="19" />
+<<<<<<< HEAD
+=======
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BWPixel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LinkedListQueue.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="46" column="4" lean-forward="true" selection-start-line="46" selection-start-column="4" selection-end-line="46" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PixelMapPlus.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="565">
+          <caret line="180" column="105" selection-start-line="180" selection-start-column="105" selection-end-line="180" selection-end-column="105" />
+>>>>>>> 1877fd6bc7d20b1164c186dac1c97233116bbea7
         </state>
       </provider>
     </entry>
@@ -456,8 +612,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/PixelMapPlus.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="646">
           <caret line="47" column="7" lean-forward="true" selection-start-line="47" selection-start-column="7" selection-end-line="47" selection-end-column="7" />
+=======
+        <state relative-caret-position="495">
+          <caret line="39" selection-start-line="39" selection-end-line="39" />
+>>>>>>> 1877fd6bc7d20b1164c186dac1c97233116bbea7
         </state>
       </provider>
     </entry>
@@ -518,7 +679,6 @@
             <option name="proportions">
               <list>
                 <option value="0.2" />
-                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>
