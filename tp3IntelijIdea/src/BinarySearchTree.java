@@ -29,6 +29,7 @@ public class BinarySearchTree<T extends Comparable<? super T> > {
     // TODO: trouver la hauteur de l'arbre
     // O(n)
     public int getHeight() {
+
         return root.getHeight();
     }
 
@@ -46,8 +47,11 @@ public class BinarySearchTree<T extends Comparable<? super T> > {
         List<BinaryNode<T>> result = this.getItemsInOrder();
         String stringBuilder = "[";
         for(BinaryNode node : result){
-            stringBuilder += node.data + ",";
+            stringBuilder += node.getData() + ",";
         }
+        stringBuilder = stringBuilder.substring(0, stringBuilder.length()-1);
         stringBuilder += "]";
+
+        return  stringBuilder;
     }
 }
