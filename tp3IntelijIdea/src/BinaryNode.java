@@ -61,10 +61,16 @@ public class BinaryNode<T extends Comparable<? super T> > {
     // TODO: on retourne la maximale de l'arbre
     // O(n)
     public int getHeight() {
-        if(left==null&&right==null)
+
+        if(left==null&&right==null){
             return 0;
-        else
-            return 1 + Math.max(left.getHeight(),right.getHeight());
+        }
+        else {
+            int hL = ((left != null) ? left.getHeight() : 0);
+            int hR = ((right != null) ? right.getHeight() : 0);
+            return 1 + Math.max(hL, hR);
+        }
+
     }
 
     // TODO: l'ordre d'insertion dans la liste est l'ordre logique

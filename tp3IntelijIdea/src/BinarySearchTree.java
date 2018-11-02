@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 public class BinarySearchTree<T extends Comparable<? super T> > {
@@ -45,13 +46,8 @@ public class BinarySearchTree<T extends Comparable<? super T> > {
     // O(n)
     public String toStringInOrder() {
         List<BinaryNode<T>> result = this.getItemsInOrder();
-        String stringBuilder = "[";
-        for(BinaryNode node : result){
-            stringBuilder += node.getData() + ",";
-        }
-        stringBuilder = stringBuilder.substring(0, stringBuilder.length()-1);
-        stringBuilder += "]";
-
-        return  stringBuilder;
+        List<T> dataList = result.stream().map(BinaryNode::getData).collect(Collectors.toList());
+        String resultString = dataList.toString();
+        return  resultString;
     }
 }
