@@ -63,6 +63,7 @@ public class TestCompany {
 
         tree.buy(_90);
 
+        int x = 0;
         return tree;
     }
 
