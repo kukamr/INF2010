@@ -77,7 +77,7 @@ public class TestCompany {
         TestHelper.printTest(tree.getWorstChildMoney() == -45);
     }
 
-    private void testPrint() {
+   public void testPrint() {
         CompanyTree tree = initTest();
         String expected =
                 "402\n" +
