@@ -77,6 +77,7 @@ public class BinaryNode<T extends Comparable<? super T> > {
     // de manière que le plus petit item sera le premier inseré
     // O(n)
     public void fillListInOrder(List<BinaryNode<T>> result) {
+
         if(left==null)
             result.add(this);
         else{
