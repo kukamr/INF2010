@@ -19,10 +19,10 @@ public class Main
       // en inserant les elements un a un
       for( i = 11, j = 0; j != numItems; i = ( i + 37 ), j++ )
       {
-	  heap.offer( i );
-	  items[ j ] = i;
+	      heap.offer( i );
+	      items[ j ] = i;
 
-	  i %=  numItems; 
+	      i %=  numItems; 
       }
 
       // en construisant le monceau depuis le depart
@@ -32,7 +32,7 @@ public class Main
       heap = new BinaryHeap<Integer>(false);
       // en inserant les elements un a un
       for( Integer item : items)
-	  heap.offer( item );
+	    heap.offer( item );
 
       // en construisant le monceau depuis le depart
       System.out.println("Monceau max contruit element par element:");
@@ -50,6 +50,7 @@ public class Main
       System.out.println("Affichage recursif:");
       System.out.println( heap.printFancyTree() );
 
+      /*
       System.out.println("Affichage non recursif:");
       System.out.println( heap.nonRecursivePrintFancyTree() );
 
@@ -64,7 +65,7 @@ public class Main
       BinaryHeap.heapSortReverse( items );
       System.out.println("Tableau inversement ordonne:");
       System.out.println( printArray( items ) );
-
+      */
 
       /*
        * Ajouter appels pour repondre a la question
