@@ -247,12 +247,54 @@ public class BinaryHeap<AnyType extends Comparable<? super AnyType>> extends Abs
         }
     }
     
+    public static double log2(double d){
+        return Math.log(d)/Math.log(2.0);
+    }
+
     public String nonRecursivePrintFancyTree()
     {
-        String outputString = "";
-        
+        String space = "  |";
+        String prefix = "__";
+        String lineJump = "\n";
 
-	
+        String outputString = "|__";
+        outputString += array[1];
+
+        Integer i;
+        for( i  = 2; i < currentSize; i *= 2){
+            outputString += lineJump;
+            outputString += " ";
+            for(int j = 0; j < log2(i); j ++){
+                outputString += space;
+            }
+            outputString += prefix;
+            outputString += array[i];
+
+            if(2*i > currentSize){ // si ces enfants nont pas denfants, on les imprime les deux
+                outputString += lineJump;
+                outputString += " ";
+                for(int j = 0; j < log2(i); j ++){
+                    outputString += space;
+                }
+                outputString += prefix;
+                outputString += array[i+1];
+            }
+            System.out.println(i);
+        }
+        System.out.println("sorti");
+        System.out.println(i);
+        
+        /*outputString += "   |__";
+        outputString += array[2];
+
+        outputString += "\n";
+        outputString += "   |  |__";
+        outputString += array[4];
+
+        outputString += "\n";
+        outputString += "   |  |  |__";
+        outputString += array[8];*/
+        
 	//COMPLETEZ
 
 	return outputString;

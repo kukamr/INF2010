@@ -70,6 +70,33 @@ public class Main
       /*
        * Ajouter appels pour repondre a la question
        **/
+
+       BinaryHeap<Integer> testHeap = new BinaryHeap<Integer>(true); //Nouveau monceau minimum
+       BinaryHeap<Integer> testHeapMax = new BinaryHeap<Integer>(false);
+
+       Integer [] zeroToTen = new Integer[10];
+
+       for ( i = 0; i < 10; i++){
+          zeroToTen[i] = i;
+          testHeap.offer(i);
+          testHeapMax.offer(i);
+       }
+
+       BinaryHeap<Integer> heapWithArray = new BinaryHeap<Integer>(zeroToTen, true); // creation monceau a laide du tableau
+       BinaryHeap<Integer> maxHeapWithArrays = new BinaryHeap<Integer>(zeroToTen, false);
+       System.out.println(testHeap.printFancyTree());
+       System.out.println(testHeap.nonRecursivePrintFancyTree());
+       //System.out.println( heap.printFancyTree() );
+       //System.out.println( heap.nonRecursivePrintFancyTree() );
+
+       //System.out.println(testHeapMax.printFancyTree());
+       //System.out.println(maxHeapWithArrays.printFancyTree());
+       //System.out.println(maxHeapWithArrays.printFancyTree());
+
+
+
+
+
    }
 
    private static <AnyType> 
