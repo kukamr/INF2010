@@ -78,10 +78,6 @@ public class Main
          testHeap.offer(i);
       }
 
-      Iterator it = priorityQ.iterator();
-
-      
-
       if(testHeap.peek() == priorityQ.peek())
          System.out.println("peek() fonctionne");
       else
