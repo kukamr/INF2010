@@ -83,23 +83,9 @@ public class BinaryHeap<AnyType extends Comparable<? super AnyType>> extends Abs
         
     }
     
-    
     public Iterator<AnyType> iterator()
-    {   
-        ArrayList<AnyType> list = new ArrayList<AnyType>(); 
-    for(int i = 0; i< array.length; i++){
-        list.add(this.array[i]);
-    }
-        Iterator<AnyType> iterator = list.iterator();
-        int modif = modifications;
-        while (iterator.hasNext()) {
-            if (modif != this.modifications) {
-                throw new ConcurrentModificationException();
-            }
-            modif++;
-            iterator.next();
-        }
-        return iterator;
+    {
+	    return new HeapIterator();
     }
     
     private void buildMinHeap()
@@ -316,8 +302,20 @@ public class BinaryHeap<AnyType extends Comparable<? super AnyType>> extends Abs
 	public Object next() throws NoSuchElementException, 
 				    ConcurrentModificationException, 
 				    UnsupportedOperationException {
-        //COMPLETEZ
-        return null;
+                        ArrayList<AnyType> list = new ArrayList<AnyType>(); 
+                        for(int i = 0; i< array.length; i++){
+                            list.add(array[i]);
+                        }
+                            Iterator<AnyType> iterator = list.iterator();
+                            int modif = modifications;
+                            while (iterator.hasNext()) {
+                                if (modif != modifications) {
+                                    throw new ConcurrentModificationException();
+                                }
+                                modif++;
+                                iterator.next();
+                            }
+        return iterator;
 	}
 	
 	public void remove() {
