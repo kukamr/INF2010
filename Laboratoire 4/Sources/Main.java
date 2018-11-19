@@ -70,28 +70,58 @@ public class Main
       /*
        * Ajouter appels pour repondre a la question
        **/
+      PriorityQueue<Integer> priorityQ = new PriorityQueue<Integer>();
+      BinaryHeap<Integer> testHeap = new BinaryHeap<Integer>(true); 
 
-       BinaryHeap<Integer> testHeap = new BinaryHeap<Integer>(true); //Nouveau monceau minimum
-       BinaryHeap<Integer> testHeapMax = new BinaryHeap<Integer>(false);
+      for(i = 0; i < 20; i ++){
+         priorityQ.add(i);
+         testHeap.offer(i);
+      }
 
-       Integer [] zeroToTen = new Integer[10];
+      Iterator it = priorityQ.iterator();
 
-       for ( i = 0; i < 10; i++){
-          zeroToTen[i] = i;
-          testHeap.offer(i);
-          testHeapMax.offer(i);
-       }
+      
 
-       BinaryHeap<Integer> heapWithArray = new BinaryHeap<Integer>(zeroToTen, true); // creation monceau a laide du tableau
-       BinaryHeap<Integer> maxHeapWithArrays = new BinaryHeap<Integer>(zeroToTen, false);
-       System.out.println(testHeap.printFancyTree());
-       System.out.println(testHeap.nonRecursivePrintFancyTree());
-       //System.out.println( heap.printFancyTree() );
-       //System.out.println( heap.nonRecursivePrintFancyTree() );
+      if(testHeap.peek() == priorityQ.peek())
+         System.out.println("peek() fonctionne");
+      else
+         System.out.println("peek() ne fonctionne pas");
 
-       //System.out.println(testHeapMax.printFancyTree());
-       //System.out.println(maxHeapWithArrays.printFancyTree());
-       //System.out.println(maxHeapWithArrays.printFancyTree());
+      int pollOnePrq = priorityQ.poll();
+      int pollTwoPrq = priorityQ.poll();
+
+      int pollOneHeap = testHeap.poll();
+      int pollTwoHeap = testHeap.poll();
+
+      if(pollOnePrq == pollOneHeap && pollTwoPrq == pollTwoHeap)
+         System.out.println("poll() fonctionne");
+      else 
+         System.out.println("poll() ne fonctionne pas");
+
+
+       
+      /*BinaryHeap<Integer> testHeapMax = new BinaryHeap<Integer>(false);
+
+      Integer [] zeroToTen = new Integer[10];
+
+      for ( i = 0; i < 10; i++){
+         zeroToTen[i] = 2*i;
+         testHeap.offer(2*i);
+         testHeapMax.offer(i);
+      }
+
+      BinaryHeap<Integer> heapWithArray = new BinaryHeap<Integer>(zeroToTen, true); // creation monceau a laide du tableau
+      BinaryHeap<Integer> maxHeapWithArrays = new BinaryHeap<Integer>(zeroToTen, false);
+      System.out.println(testHeap.printFancyTree());
+      System.out.println(testHeap.nonRecursivePrintFancyTree());
+
+      */
+      //System.out.println( heap.printFancyTree() );
+      //System.out.println( heap.nonRecursivePrintFancyTree() );
+
+      //System.out.println(testHeapMax.printFancyTree());
+      //System.out.println(maxHeapWithArrays.printFancyTree());
+      //System.out.println(maxHeapWithArrays.printFancyTree());
 
 
 
