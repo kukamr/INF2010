@@ -29,7 +29,7 @@ public class Bellman {
 	
 	public void shortestPath() {
 		
-		for(Node n : graph.getNodes()){
+		for(Node n : graph.getNodes()){	
 
 			piTable.add(new Vector<Double>());		//Ajoute un vecteur pour chaque noeud
 			
@@ -40,9 +40,17 @@ public class Bellman {
 			rTable.get(n.hashCode()).add( inf );	// Ajoute infini au vecteur de chaque noeud
 		}
 
-		Integer k = 1;
+		Integer k = 0;
 
 		for(;;){
+			
+			k += 1;
+
+			List<Vector<Double>> piKMinusOne = piTable[k - 1];
+
+			for (Node node : graph.getNodes()) { 
+				Double kMinusOneValue = 
+			}
 				
 		}
 
