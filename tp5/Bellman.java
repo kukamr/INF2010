@@ -26,19 +26,20 @@ public class Bellman {
 	
 	public void shortestPath() {
 		
-		//1. On ajoute le premier vecteur a notre piTable pour k = 0
-		//   Meme chose pour la rTable
+		//On ajoute le premier vecteur a notre piTable pour k = 0
+		//Meme chose pour la rTable
 		piTable.add( new Vector<Double>());
 		rTable.add( new Vector<Integer>());
 		Integer k = 0;
 
-		//2. Initialiser les distances dans piTable a Infini pour tous les noeuds, sauf src = 0
-		//   Mettre Infini dans la rTable pour tout les noeuds
+		//Initialiser les distances dans piTable a Infini pour tous les noeuds, sauf src = 0
+		//Mettre Infini dans la rTable pour tout les noeuds
 		for (Node n : this.graph.getNodes()){
 			piTable.get(k).add( n.equals(this.sourceNode) ? 0.0 : (double)inf );
 			rTable.get(k).add(inf);
 		}
 		
+		boolean hasNegativePath = false;
 
 		for(;;){
 			
@@ -46,12 +47,8 @@ public class Bellman {
 			k++;
 			piTable.add(new Vector<Double>());
 			rTable.add( new Vector<Integer>());
-
+			
 			for(Node n : this.graph.getNodes()){
-
-				//On copie le piTable -1 a k et le rTable
-				piTable.set(k, piTable.get(k-1));
-				rTable.set(k, rTable.get(k-1));
 
 				// PI^k-1(n) : temps Minimal jusqu'a present pour se rendre au Node n
 				Double currentMinimalTimeToNode = piTable.get(k - 1).get(n.hashCode());
@@ -62,47 +59,93 @@ public class Bellman {
 				// On cherche le temps minimum pour se rendre a n a partir d'un de ses predecesseurs
 				// On prend le minimum entre le PI^k-1(n) et le plus rapide a partir de ses predecesseurs
 
-				// On met minWeightToN a inf
-				Double minValue = (double)inf;
-				Node previousNodeToN = rTable.get(k - 1).get(n.hashCode);
-				
+				// On met minValue a la valeur precedente
+				Double minValue = piTable.get(k-1).get(n.hashCode());
+
+				//Integer previousNodeToNID = rTable.get(k - 1).get(n.hashCode()); //is 99999 by default
+				//Node previousNodeToN = this.graph.getNodeById(previousNodeToNID);
+				Node minNode = null;
+
+				//Va trouver le temps minimum pour se rendre a n et de quel noeud on vient
 				for ( Edge e : inEdges){
 					// On sait que la destination est n
-					Node previousNode = e.getSource();
+					Node sourceNode = e.getSource();
 					
-					//Le temps minimal jusqua present pour se rendre a son predecesseur
-					Double currentWeightToPredecessor = piTable.get(k-1).get(previousNode.hashCode());
-					Double weightFromPredecessorToN = e.getDistance();
+					//Le temps minimal jusqua present pour se rendre a la source 
+					Double currentWeightToSource = piTable.get(k-1).get(sourceNode.hashCode());
+					Double edgeWeight = e.getDistance();
 					
-					if((currentWeightToPredecessor + weightFromPredecessorToN) < minValue){
-						minValue = currentMinimalTimeToNode + weightFromPredecessorToN;
-						previousNodeToN = previousNode;
+					if((currentWeightToSource + edgeWeight) < minValue){
+						minValue = currentWeightToSource + edgeWeight;
+						minNode = e.getSource(); 
 					}
 					
 				}
 				
+				piTable.get(k).add(minValue);
+
 				// Si le weight a partir d'un predecesseur est plus rapide que le temps courant, on change le temps courant
 				if(minValue < currentMinimalTimeToNode){
-					piTable.get(k).set(n.hashCode(), minValue);
-					//Et on met a jour la rTable
-					rTable.get(k).set(n.hashCode(), previousNodeToN.hashCode());
+					//On met a jour la rTable
+					rTable.get(k).add(minNode.hashCode());
+				} else {
+					//Sinon, on remet la meme valeur qu'en PI^k-1
+					rTable.get(k).add(rTable.get(k-1).get(n.hashCode()));
 				}
 			}
 
 			// Si pi^k == pi^k-1 on arrete, il n'y a eu aucune modification
-			if(piTable.get(k-1) == piTable.get(k)){
+			Boolean same = true;
+			for(Integer n = 0; n < piTable.get(k).size(); n++){
+				if (piTable.get(k-1).get(n) != piTable.get(k).get(n)){
+					same = false;
+					break;
+				}
+			}
+			if(same){
+				break;
+			}
+			//verifier si il contient un chemin negatif
+			if (k == this.graph.getNodes().size()){
+				hasNegativePath = true;
 				break;
 			}
 
-			//verifier si negatif
+			
 		}
 	}
 	
 	public void  diplayShortestPaths() {
-		//Completer
+		
 	}
 
 	public void displayTables() {
-	 //Completer
+		System.out.println("Display piTable");
+		Integer i = 0;
+		for(Vector<Double> a : piTable) {
+			System.out.print("[" + i++ + "] - ");
+			for(Double d : a){
+				System.out.print("("+d+")");
+				System.out.print(" - ");
+				
+			}	
+			System.out.println(" ");
+			System.out.println("-------------------");
+		}
+
+		System.out.println("Display rTables");
+		for(Vector<Integer> a : rTable) {
+			for(Integer d : a){
+				String nodeName = "-";
+				if( d < 90){
+					nodeName = this.graph.getNodeById(d).getName();
+				}
+				System.out.print(nodeName);
+				System.out.print(" - ");
+				
+			}	
+			System.out.println(" ");
+			System.out.println("-------------------");
+		}
 	}
 }
