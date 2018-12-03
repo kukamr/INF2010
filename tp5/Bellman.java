@@ -117,14 +117,10 @@ public class Bellman {
 	
 	public void  diplayShortestPaths() {
 		List<Node> nodeBell = this.graph.getNodes(); //list contenant tous les node de la class Bellman
-		List<Node> nodeCopy = new ArrayList<Node>(); // initilisation d'une list de node 
-		for(Node node: nodeBell) { // Copy de nouveau Node afin d'éviter l'erreur java.lang.NullPointerException
-			nodeCopy.add(node.copy()); 
-		}
-		nodeCopy.remove(nodeCopy.get(this.sourceNode.getId())); // retirer le node S
 		int lastIndex = this.rTable.size()-1; // index definit au dernier élé de la rTable
 
 		for(Node nodeSuivant: nodeBell) {
+			if(nodeSuivant.getId() != this.sourceNode.getId()){
 			String chemin= "[S - " + nodeSuivant.getName() + "]"+ this.piTable.get(lastIndex).get(nodeSuivant.getId()).toString() + " : "; // definition des chemin Node - Node
 			String route = "";
 			while( nodeSuivant.getId() != this.sourceNode.getId()) {
@@ -134,7 +130,7 @@ public class Bellman {
 			}
 
 			route = sourceNode.getName() + route; // mettre le node S au debut de l'affichge de la route
-			System.out.println(chemin + route); // afficher sur le terminal
+			System.out.println(chemin + route);} // afficher sur le terminal
 		}
 	}
 	
