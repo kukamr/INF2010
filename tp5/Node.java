@@ -25,4 +25,7 @@ public class Node {
 	public int hashCode() {
 		return id;
 	}
+	public Node copy() {
+		return new Node(this.id, this.name);
+	}
 }
