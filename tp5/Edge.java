@@ -36,4 +36,6 @@ public class Edge {
 	public void setDsitance(double distance) {
 		this.distance = distance;
 	}
+	
 }
+

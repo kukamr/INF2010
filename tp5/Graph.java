@@ -92,7 +92,7 @@ public class Graph {
 		List<Edge> inEdges = new ArrayList<Edge>(); 
 
 		for (Edge e : edges) {
-			if(e.getDestination() == dest)
+			if(e.getDestination() == dest && e.getSource() != dest)
 				inEdges.add(e);
 		}
 		return inEdges;		
