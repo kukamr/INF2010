@@ -117,7 +117,7 @@ public class Bellman {
 	
 	public void  diplayShortestPaths() {
 		List<Node> nodeBell = this.graph.getNodes(); //list contenant tous les node de la class Bellman
-		int lastIndex = this.rTable.size()-1; // index definit au dernier élé de la rTable
+		int lastIndex = this.rTable.size()-1; // index definit au dernier élément de la rTable
 
 		for(Node nodeSuivant: nodeBell) {
 			if(nodeSuivant.getId() != this.sourceNode.getId()){
@@ -136,32 +136,42 @@ public class Bellman {
 	
 
 	public void displayTables() {
-		System.out.println("Display piTable");
+		System.out.println("<<Display piTable>>");
 		Integer i = 0;
+		String node = "";
+		for (int j = 0; j < this.piTable.size(); j++) 
+				node += this.graph.getNodeById(j).getName() + "    ";
+				System.out.println("\t\t  "+ node + "F");
 		for(Vector<Double> a : piTable) {
-			System.out.print("[" + i++ + "] - ");
+			System.out.print( i++ + "\t:\t ");
 			for(Double d : a){
-				System.out.print("("+d+")");
-				System.out.print(" - ");
+				if(d == (double)inf){
+					System.out.print("inf");
+					System.out.print("  ");}
+				else{
+				System.out.print(""+d+"");
+				System.out.print("  ");}
 				
 			}	
 			System.out.println(" ");
-			System.out.println("-------------------");
 		}
 
-		System.out.println("Display rTables");
+		System.out.println("\n");
+		System.out.println("<<Display rTables>>");
+		System.out.println("k\t:\t "+ node + "F");
+		int k= 0;
 		for(Vector<Integer> a : rTable) {
+			System.out.print( k++ + "\t:\t ");
 			for(Integer d : a){
 				String nodeName = "-";
-				if( d < 90){
+				if( d < inf){
 					nodeName = this.graph.getNodeById(d).getName();
 				}
-				System.out.print(nodeName);
-				System.out.print(" - ");
+				System.out.print(nodeName + "    ");
 				
 			}	
 			System.out.println(" ");
-			System.out.println("-------------------");
+		
 		}
 	}
 }
