@@ -13,7 +13,7 @@ public class Bellman {
 	private Node sourceNode;
 	private List<Vector<Double>> piTable =  new ArrayList<Vector<Double>>();
 	private List<Vector<Integer>> rTable =  new ArrayList<Vector<Integer>>();
-	
+	boolean hasNegativePath = false;
 	static final Integer inf = 99999;
 	
 	public Bellman (Graph g) {
@@ -39,7 +39,7 @@ public class Bellman {
 			rTable.get(k).add(inf);
 		}
 		
-		boolean hasNegativePath = false;
+	
 
 		for(;;){
 			
@@ -118,19 +118,25 @@ public class Bellman {
 	public void  diplayShortestPaths() {
 		List<Node> nodeBell = this.graph.getNodes(); //list contenant tous les node de la class Bellman
 		int lastIndex = this.rTable.size()-1; // index definit au dernier élément de la rTable
+		if(rTable.size()-1 != nodeBell.size()){
 
-		for(Node nodeSuivant: nodeBell) {
-			if(nodeSuivant.getId() != this.sourceNode.getId()){
-			String chemin= "[S - " + nodeSuivant.getName() + "]"+ this.piTable.get(lastIndex).get(nodeSuivant.getId()).toString() + " : "; // definition des chemin Node - Node
-			String route = "";
-			while( nodeSuivant.getId() != this.sourceNode.getId()) {
-				route = " -> " +  nodeSuivant.getName() + route; // Afficher le prochain chemin tant qu'il ne revient pas tu ne revinet pas au nodeSource
-				int indexSuivant = this.rTable.get(lastIndex).get( nodeSuivant.getId()); //trouver le
-				nodeSuivant = this.graph.getNodeById(indexSuivant); //Valeur de l'index qui sépare le dernier node du nodeSource
+			for(Node nodeSuivant: nodeBell) {
+				if(nodeSuivant.getId() != this.sourceNode.getId()){
+				String chemin= "[S - " + nodeSuivant.getName() + "]"+ this.piTable.get(lastIndex).get(nodeSuivant.getId()).toString() + " : "; // definition des chemin Node - Node
+				String route = "";
+				while( nodeSuivant.getId() != this.sourceNode.getId()) {
+					route = " -> " +  nodeSuivant.getName() + route; // Afficher le prochain chemin tant qu'il ne revient pas tu ne revinet pas au nodeSource
+					int indexSuivant = this.rTable.get(lastIndex).get( nodeSuivant.getId()); //trouver le
+					nodeSuivant = this.graph.getNodeById(indexSuivant); //Valeur de l'index qui sépare le dernier node du nodeSource
+				}
+
+				route = sourceNode.getName() + route; // mettre le node S au debut de l'affichge de la route
+				System.out.println(chemin + route);} // afficher sur le terminal
 			}
-
-			route = sourceNode.getName() + route; // mettre le node S au debut de l'affichge de la route
-			System.out.println(chemin + route);} // afficher sur le terminal
+		}
+		else{
+			System.out.println("=> Le graphe contient un circuit de cout negatif: \n");
+			System.out.println("[B-B]");
 		}
 	}
 	
