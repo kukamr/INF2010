@@ -337,19 +337,31 @@ public class BinaryHeap<AnyType extends Comparable<? super AnyType>> extends Abs
     
     private class HeapIterator implements Iterator {
 	
-	public boolean hasNext() {
-        return false; ///
-	}
-
-	public Object next() throws NoSuchElementException, 
-				    ConcurrentModificationException, 
-				    UnsupportedOperationException {
-        //COMPLETEZ
-        return null;
-	}
-	
-	public void remove() {
-	    throw new UnsupportedOperationException();
-	}
-    }
+        public boolean hasNext() {
+            return false; ///
+        }
+    
+        public Object next() throws NoSuchElementException, 
+                        ConcurrentModificationException, 
+                        UnsupportedOperationException {
+                            ArrayList<AnyType> list = new ArrayList<AnyType>(); 
+                            for(int i = 0; i< array.length; i++){
+                                list.add(array[i]);
+                            }
+                                Iterator<AnyType> iterator = list.iterator();
+                                int modif = modifications;
+                                while (iterator.hasNext()) {
+                                    if (modif != modifications) {
+                                        throw new ConcurrentModificationException();
+                                    }
+                                    modif++;
+                                    iterator.next();
+                                }
+            return iterator;
+        }
+        
+        public void remove() {
+            throw new UnsupportedOperationException();
+        }
+        }
 }
